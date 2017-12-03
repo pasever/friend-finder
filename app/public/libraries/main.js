@@ -1,0 +1,1 @@
+$("input[name='optradio1']:checked").val();
