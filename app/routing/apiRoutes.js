@@ -1,12 +1,17 @@
 const friends = require("../data/friends");
 
-
-
-
-app.get("/api/friends", function(req, res) {
-  res.json(friends);
-});
-
-app.post("/api/friends", function(req, res) {
+module.exports = function(app) {
   
+  app.get("/", function(req, res) {
+    res.json(friends);
+  });
+
+  // app.post("/api/new", function(req, res) {
+  //   var newfriend = req.body;
+  // 
+  //   console.log(newfriend);
+  //  
+  //   friends.push(newfriend);
+  //   res.json(newfriend);
+  // });
 }

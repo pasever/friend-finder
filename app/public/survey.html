@@ -41,11 +41,11 @@
     <form>
       <div class="form-group col-md-6">
         <label for="usr">Your name:</label>
-        <input type="text" class="form-control" id="usr">
+        <input type="text" class="form-control" id="userName">
       </div>
       <div class="form-group col-md-6">
         <label for="pwd">Upload your picture here</label>
-        <input type="password" class="form-control" id="pwd">
+        <input type="password" class="form-control" id="userPhoto">
       </div>
       
       <!-- <div class="form-group col-md-6 fileupload fileupload-new" data-provides="fileupload">
@@ -62,7 +62,7 @@
   <div class="container">
     <h2><b>Question 1</b></h2>
     <h3><p>Your mind is always buzzing with unexplored ideas and plans.</p></h3>
-    <form>
+    <form action="/friends" method="POST">
       </br>
       <label class="radio-inline">
         <input type="radio" name="optradio1" class="toggle" value="1">1 Strongly Disagree
@@ -79,13 +79,13 @@
       <label class="radio-inline">
         <input type="radio" name="optradio1" class="toggle" value="5">5 Strongly Agree 
       </label>
-    </form>
+    <!-- </form> -->
     </br>
     <hr>
 
     <h2><b>Question 2</b></h2>
     <h3><p>Generally speaking, you rely more on your experience than your imagination.</p></h3>
-    <form>
+    <!-- <form> -->
       </br>
       <label class="radio-inline">
         <input type="radio" name="optradio2" class="toggle" value="1">1 Strongly Disagree
@@ -320,7 +320,7 @@
   </script> -->
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="main.js"></script>
+  <script src="public/libraries/main.js"></script>
 </body>
 
 </html>
