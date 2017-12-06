@@ -6,12 +6,12 @@ module.exports = function(app) {
     res.json(friends);
   });
 
-  // app.post("/api/new", function(req, res) {
-  //   var newfriend = req.body;
-  // 
-  //   console.log(newfriend);
-  //  
-  //   friends.push(newfriend);
-  //   res.json(newfriend);
-  // });
+  app.post("/api/new", function(req, res) {
+    var newfriend = req.body;
+  
+    console.log(newfriend);
+   
+    friends.push(newfriend);
+    res.json(newfriend);
+  });
 }
