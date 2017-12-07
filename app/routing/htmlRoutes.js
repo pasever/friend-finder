@@ -12,13 +12,16 @@ module.exports = function(app) {
   app.get("/survey", (req, res) => {
     res.sendFile(path.join(__dirname, '/../public/survey.html'));
   });
+} 
 
-  // app.post("/api/new", function(req, res) {
-  //   var newfriend = req.body;
-  // 
-  //   console.log(newfriend);
-  //  
-  //   friends.push(newfriend);
-  //   res.json(newfriend);
-  // });
-}
+
+
+
+// app.post("/api/new", function(req, res) {
+//   var newfriend = req.body;
+// 
+//   console.log(newfriend);
+//  
+//   friends.push(newfriend);
+//   res.json(newfriend);
+// });

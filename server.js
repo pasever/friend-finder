@@ -12,16 +12,12 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // const routes = require("./app/routing/htmlRoutes");
 // routes(app);
 
+
+//routes
 require("./app/routing/htmlRoutes")(app);
+require("./app/routing/apiRoutes")(app);
 
-
-// var routes = require(path.join(__dirname, '/app/routing/apiRoutes'));
-// routes(app);
-
-
-// require(path.join(__dirname, '/app/routing/apiRoutes'))(app);
-// require(path.join(__dirname, '/app/routing/htmlRoutes'))(app);
-// 
+//listening on port
 app.listen(PORT, function() {
   console.log("Friends listening on PORT: " + PORT);
 });
