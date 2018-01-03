@@ -1,9 +1,12 @@
 //$("input[name='optradio1']:checked").val();
-const friends = require("../data/friends");
+alert("Hello World!");
+console.log("Hello world");
+
+const friends = require("../data/friends.js");
 
 $("#submit").on("click", function() {
   alert("Hello World!");
-  
+
   let newUser = {
     name: $("#userName").val(),
     photo: $("#userPhoto").val(),
@@ -21,25 +24,19 @@ $("#submit").on("click", function() {
     ]
   };
 
-
   $.ajax({
-  type: "POST",
-  url: '/api/new',
-  data: newUser,
-  success: function() {
-    
-    
-    console.log("Updated");
-    location.redirect("/");
-    
-  },
-  error: function () {
-    console.log("err");
-  }
-});
+    type: "POST",
+    url: '/api/friends',
+    data: newUser,
+    success: function() {
 
+      console.log("Updated");
+      //location.redirect("/");
 
-
-  friends.push(friends.newUser);
+    },
+    error: function() {
+      console.log("err");
+    }
+  });
 
 });
