@@ -22,18 +22,16 @@ module.exports = function(app) {
     for (var i = 0; i < friends.length; i++) {
       var currentFriend = friends[i];
       totalDifference = 0;
-
+    
       console.log(currentFriend.name);
-
+    
       for (var j = 0; j < currentFriend.answers.length; j++) {
         var currentFriendScore = currentFriend.answers[j];
         var currentUserScore = userScores[j];
-
-        // We calculate the difference between the scores and sum them into the totalDifference
+    
         totalDifference += Math.abs(parseInt(currentUserScore) - parseInt(currentFriendScore));
       }
-
-      // If the sum of differences is less then the differences of the current "best match"
+    
       if (totalDifference <= bestMatch.friendDifference) {
         // Reset the bestMatch to be the new friend.
         bestMatch.name = currentFriend.name;
@@ -42,5 +40,6 @@ module.exports = function(app) {
       }
     }  
     friends.push(userData);
+    res.json(bestMatch);
   });
 }
