@@ -314,105 +314,80 @@
       </div>
     </footer>
   </div>
+  
+  <div id="results-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title"><strong>Best Match</strong></h2>
+        </div>
+        <div class="modal-body">
+          <h2 id="bestmatch-name"></h2>
+          <img id="bestmatch-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <!-- <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
   </script> -->
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- <script src="libraries/main.js"></script> -->
+  <!-- <script src="main.js"></script>  -->
   <script>
-  //$("input[name='optradio1']:checked").val();
-  alert("Hello World!");
-  console.log("Hello world");
+    // const friends = require("../data/friends.js");
 
-  // const friends = require("../data/friends.js");
+    $("#submit").on("click", function() {
+      console.log("Hello world");
+      event.preventDefault();
 
-  $("#submit").on("click", function() {
-    alert("Hello World!");
+      let newUser = {
+        name: $("#userName").val(),
+        photo: $("#userPhoto").val(),
+        answers: [
+          $("input[name='optradio1']:checked").val(),
+          $("input[name='optradio2']:checked").val(),
+          $("input[name='optradio3']:checked").val(),
+          $("input[name='optradio4']:checked").val(),
+          $("input[name='optradio5']:checked").val(),
+          $("input[name='optradio6']:checked").val(),
+          $("input[name='optradio7']:checked").val(),
+          $("input[name='optradio8']:checked").val(),
+          $("input[name='optradio9']:checked").val(),
+          $("input[name='optradio10']:checked").val()
+        ]
+      };
 
-    let newUser = {
-      name: $("#userName").val(),
-      photo: $("#userPhoto").val(),
-      answers: [
-        $("input[name='optradio1']:checked").val(),
-        $("input[name='optradio2']:checked").val(),
-        $("input[name='optradio3']:checked").val(),
-        $("input[name='optradio4']:checked").val(),
-        $("input[name='optradio5']:checked").val(),
-        $("input[name='optradio6']:checked").val(),
-        $("input[name='optradio7']:checked").val(),
-        $("input[name='optradio8']:checked").val(),
-        $("input[name='optradio9']:checked").val(),
-        $("input[name='optradio10']:checked").val()
-      ]
-    };
+      $.ajax({
+        type: "POST",
+        url: '/api/friends',
+        data: newUser,
+        success: function(data) {
 
-    $.ajax({
-      type: "POST",
-      url: '/api/friends',
-      data: newUser,
-      success: function() {
+          $("#bestmatch-name").text(data.name);
+          $("#bestmatch-img").attr("src", data.photo);
+          $("#results-modal").modal("toggle");
 
-        console.log("Updated");
-        //location.redirect("/");
+        },
+        error: function() {
+          console.log("err");
+        }
+      });
 
-      },
-      error: function() {
-        console.log("err");
-      }
     });
 
-  });
-
-  //const friends = require("../data/friends.js");
-
-  // $("#submit").on("click", function() {
-  // 
-  //   event.preventDefault();
-  // 
-  //   let newUser = {
-  //     name: $("#userName").val(),
-  //     photo: $("#userPhoto").val(),
-  //     answers: [
-  //       $("input[name='optradio1']:checked").val(),
-  //       $("input[name='optradio2']:checked").val(),
-  //       $("input[name='optradio3']:checked").val(),
-  //       $("input[name='optradio4']:checked").val(),
-  //       $("input[name='optradio5']:checked").val(),
-  //       $("input[name='optradio6']:checked").val(),
-  //       $("input[name='optradio7']:checked").val(),
-  //       $("input[name='optradio8']:checked").val(),
-  //       $("input[name='optradio9']:checked").val(),
-  //       $("input[name='optradio10']:checked").val()
-  //     ]
-  //   };
-  // 
-  // 
-  //   $.ajax({
-  //   type: "POST",
-  //   url: '/api/new',
-  //   data: newUser,
-  //   success: function() {
-  // 
-  // 
-  //     console.log("Updated");
-  //     location.redirect("/");
-  // 
-  //   },
-  //   error: function () {
-  //     console.log("err");
-  //   }
-  // });
-  // 
-  // 
-  // 
-  //   friends.push(friends.newUser);
-  // 
-  // });
-  // 
-  </script>
+    const friends = require("../data/friends.js");
   
+  </script>
+
 </body>
 
 </html>
