@@ -23,8 +23,6 @@ module.exports = function(app) {
       var currentFriend = friends[i];
       totalDifference = 0;
     
-      console.log(currentFriend.name);
-    
       for (var j = 0; j < currentFriend.answers.length; j++) {
         var currentFriendScore = currentFriend.answers[j];
         var currentUserScore = userScores[j];
@@ -33,7 +31,6 @@ module.exports = function(app) {
       }
     
       if (totalDifference <= bestMatch.friendDifference) {
-        // Reset the bestMatch to be the new friend.
         bestMatch.name = currentFriend.name;
         bestMatch.photo = currentFriend.photo;
         bestMatch.friendDifference = totalDifference;
