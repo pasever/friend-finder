@@ -15,18 +15,21 @@ let friends = [
       "5",
       "2"
     ]
-  }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  }, {
+    name: "Tedd",
+    photo: "https://i.pinimg.com/736x/56/95/90/569590d001ef3b781800bcd17a5a3615--elephant-cute-cute-elephants.jpg",
+    answers: [
+      "2",
+      "1",
+      "3",
+      "4",
+      "5",
+      "1",
+      "5",
+      "2",
+      "1",
+      "1"
+    ]
+  }    
 ];
 module.exports = friends;
